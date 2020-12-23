@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   const preloadedState = {
     entities: {
-      riskLevels: RiskLevels
+      riskLevels: RiskLevels,
+      current: {currentIdx: 10}
     }
   }
   const store = configureStore(preloadedState);

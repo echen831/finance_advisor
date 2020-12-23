@@ -1,0 +1,13 @@
+.risk {
+    display: flex;
+    cursor: pointer;
+}
+
+.risk:hover:not(.selected) {
+    background-color: aquamarine;
+    border-radius: 4px;
+}
+
+.selected {
+    background-color: chartreuse;
+}
