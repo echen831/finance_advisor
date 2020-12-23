@@ -9,3 +9,12 @@ export const ContinueButton = ({ currIdx }) => {
                  Continue
             </Link>
 }
+
+export const ToggleButton = ({showChart, setShowChart}) => {
+    const text = showChart ? "Table" : "Chart"
+    return (
+        <li className='button-container'
+            onClick={() => setShowChart(!showChart)}
+        >{text}</li>
+    )
+}
