@@ -1,0 +1,72 @@
+[
+    {
+        "Bonds": 0.8,
+        "Large Cap": 0.2,
+        "Mid Cap": 0,
+        "Foreign": 0,
+        "Small Cap": 0
+    },
+    {
+        "Bonds": 0.7,
+        "Large Cap": 0.15,
+        "Mid Cap": 0.15,
+        "Foreign": 0,
+        "Small Cap": 0
+    }, 
+    {
+        "Bonds": 0.6,
+        "Large Cap": 0.15,
+        "Mid Cap": 0.15,
+        "Foreign": 0.1,
+        "Small Cap": 0
+    },
+    {
+        "Bonds": 0.5,
+        "Large Cap": 0.2,
+        "Mid Cap": 0.2,
+        "Foreign": 0.1,
+        "Small Cap": 0
+    },
+    {
+        "Bonds": 0.4,
+        "Large Cap": 0.2,
+        "Mid Cap": 0.2,
+        "Foreign": 0.2,
+        "Small Cap": 0
+    },
+    {
+        "Bonds": 0.35,
+        "Large Cap": 0.25,
+        "Mid Cap": 0.05,
+        "Foreign": 0.3,
+        "Small Cap": 0.05
+    },
+    {
+        "Bonds": 0.2,
+        "Large Cap": 0.25,
+        "Mid Cap": 0.25,
+        "Foreign": 0.25,
+        "Small Cap": 0.05
+    },
+    {
+        "Bonds": 0.1,
+        "Large Cap": 0.25,
+        "Mid Cap": 0.4,
+        "Foreign": 0.2,
+        "Small Cap": 0.1
+    },
+    {
+        "Bonds": 0.05,
+        "Large Cap": 0.15,
+        "Mid Cap": 0.4,
+        "Foreign": 0.25,
+        "Small Cap": 0.15
+    },
+    {
+        "Bonds": 0,
+        "Large Cap": 0.05,
+        "Mid Cap": 0.25,
+        "Foreign": 0.3,
+        "Small Cap": 0.4
+    }
+]
