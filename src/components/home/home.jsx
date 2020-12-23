@@ -19,22 +19,28 @@ const Home = (props) => {
         <div className='home-container'>
             <h1>This is the Home Page</h1>
             <h2>{currIdx}</h2>
-            <ul>
+            <ul className='risk-container'>
                 {props.riskLevels.map((risk, idx) => {
                     const highlighted = currIdx === idx ? "risk selected" : 'risk'
                     return (
-    
-                        <div key={idx} className={highlighted} onClick={() => handleUpdate(idx)}>
-                            <li>Bonds: {risk['Bonds']}</li>
-                            <li>Large Cap: {risk['Large Cap']}</li>
-                            <li>Mid Cap: {risk['Mid Cap']}</li>
-                            <li>Foreign: {risk['Foreign']}</li>
-                            <li>Small Cap: {risk['Small Cap']}</li>
+                        idx === 0 ?
+                        <div className='risk'>
+                                <li>Risk Level</li>
+                                {Object.keys(risk).map(key => (
+                                    <li key={key}>{key}</li>
+                                ))}
+                        </div>
+                        : <div key={idx} className={highlighted} onClick={() => handleUpdate(idx)}>
+                            <li>{idx}</li>
+                                {Object.keys(risk).map(key => (
+                                    <li key={key}>{risk[key] * 100}%</li>
+                                ))}
                         </div>
                     )
                 } )}
             </ul>
-            <Link to='/calculator' style={currIdx === 10 ? { pointerEvents: "none" } : null}>Continue</Link>
+            <p><Link to='/calculator' style={currIdx === 0 ? { pointerEvents: "none" } : null}>Continue</Link></p>
+            
         </div>
     )
 }

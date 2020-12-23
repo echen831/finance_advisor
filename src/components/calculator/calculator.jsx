@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { rebalance } from '../../util/rebalance'; 
 
 const Calculator = (props) => {
 
-    const test = rebalance([1,2,3,4,5], [5,4,3,2,1])
+    const test = rebalance([2,1,0,-1,-2], Object.keys(props.data))
 
     return (
         <div>
@@ -27,7 +27,7 @@ const mSTP = (state) => {
     const currentIdx = state.entities.current.currentIdx
     return {
         data: state.entities.riskLevels[currentIdx],
-        riskLevelIdx: currentIdx + 1
+        riskLevelIdx: currentIdx
     }
 } 
 

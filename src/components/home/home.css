@@ -1,3 +1,10 @@
+.risk-container {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    border: 1px solid black;
+}
+
 .risk {
     display: flex;
     cursor: pointer;
@@ -6,6 +13,11 @@
 .risk:hover:not(.selected) {
     background-color: aquamarine;
     border-radius: 4px;
+}
+
+.risk li {
+    width: 10%;
+    margin: .5rem;
 }
 
 .selected {

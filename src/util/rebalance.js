@@ -1,8 +1,7 @@
 const { MaxHeap } = require('./max_heap');
 const { MinHeap } = require('./min_heap');
 
-export const rebalance = (arr1, arr2) => {
-    let diff = findDiff(arr1, arr2);
+export const rebalance = (diff, keys) => {
     let heaps = buildMinMaxHeap(diff);
     let minHeap = heaps[0];
     let maxHeap = heaps[1];
@@ -15,12 +14,12 @@ export const rebalance = (arr1, arr2) => {
         let d = min.val + max.val;
 
         if (d === 0) {
-            res.push(`Move ${round(max.val)} from Index ${max.idx} to ${min.idx}`)
+            res.push(`Move $${round(max.val)} from ${keys[max.idx]} to ${keys[min.idx]}`)
         } else if (d > 0) {
-            res.push(`Move ${round(Math.abs(min.val))} from Index ${max.idx} to ${min.idx}`)
+            res.push(`Move $${round(Math.abs(min.val))} from ${keys[max.idx]} to ${keys[min.idx]}`)
             maxHeap.insert(d, max.idx)
         } else {
-            res.push(`Move ${round(Math.abs(max.val))} from Index ${max.idx} to ${min.idx}`)
+            res.push(`Move $${round(Math.abs(max.val))} from ${keys[max.idx]} to ${keys[min.idx]}`)
             minHeap.insert(d, min.idx)
         }
     }
