@@ -18,14 +18,14 @@ export const rebalance = (diff, keys) => {
 
         if (d === 0) {
             const displayMax = round(max.val)
-            res.push(`Move $${displayMax} from ${fromCol} to ${toCol}`)
+            res.push(`Transfer $${displayMax} from ${fromCol} to ${toCol}`)
         } else if (d > 0) {
             const displayMin = round(Math.abs(min.val))
-            res.push(`Move $${displayMin} from ${fromCol} to ${toCol}`)
+            res.push(`Transfer $${displayMin} from ${fromCol} to ${toCol}`)
             maxHeap.insert(d, max.idx)
         } else {
             const displayMax = round(Math.abs(max.val))
-            res.push(`Move $${displayMax} from ${fromCol} to ${toCol}`)
+            res.push(`Transfer $${displayMax} from ${fromCol} to ${toCol}`)
             minHeap.insert(d, min.idx)
         }
     }

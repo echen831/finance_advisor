@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
+import './calculator.css'
 
 const INITIAL_VALUES = { 'Bonds': 0, 'Large Cap': 0, 'Mid Cap': 0, 'Foreign': 0, 'Small Cap': 0 };
 
@@ -11,8 +12,6 @@ const Calculator = (props) => {
     const [difference, setDifference ] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
     const options = Object.keys(props.data)
-
-    const test = rebalance([2,1,0,-1,-2], options)
 
     useEffect(() => {
         setInputSum(Object.values(inputs).reduce((a,c) => a + c, 0))
@@ -49,29 +48,30 @@ const Calculator = (props) => {
     return (
         <div>
             <h1>Risk Level: {props.riskLevelIdx}</h1>
-            <h2>Sum: {inputSum}</h2>
-            <div className='risk'>
-                {options.map((item, idx) => {
-                    return <li key={idx}>{item}: {props.data[item] * 100}%</li>
+            <div className='header'>
+                {options.map(option => {
+                    return <li>{option}: {props.data[option] * 100}%</li>
                 })}
             </div>
 
-            <div>
-                <h3>Your Inputs</h3>
-                {options.map(option => {
-                    return <input key={option} type="number" onChange={(e)=>handleInputChange(e, option)}/>
-                })}
-            </div>
-            <div>
-                <h3>Difference</h3>
+            <div className='input-container'>
+                <div className='input'>
+                    <li>Option</li>
+                    <li>Your Input</li>
+                    <li>Difference</li>
+                    <li>New Amount</li>
+                </div>
                 {options.map((option, idx) => {
-                    return <input key={option} value={difference[idx]} type="number" />
-                })}
-            </div>
-            <div>
-                <h3>Target Inputs</h3>
-                {options.map(option => {
-                    return <input key={option} value={targetValues[option]} type="number"/>
+                    const displayDiff = (difference[idx] > 0) ? `+${difference[idx]}` : difference[idx]
+                    const displayDiffColor = difference[idx] !== 0 ? difference[idx] > 0 ? 'red' : 'green' : ''; 
+                    return(
+                        <div key={idx} className='input'>
+                            <li>{option}:</li>
+                            <li><input type="number" onChange={(e) => handleInputChange(e, option)} /></li>
+                            <li id={displayDiffColor}>{displayDiff}</li>
+                            <li>{targetValues[option]}</li>
+                        </div>
+                    )
                 })}
             </div>
 
