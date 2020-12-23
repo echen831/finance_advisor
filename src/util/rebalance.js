@@ -11,15 +11,21 @@ export const rebalance = (diff, keys) => {
         let min = minHeap.deleteMin();
         let max = maxHeap.deleteMax();
 
+        const fromCol = keys[max.idx]
+        const toCol = keys[min.idx]
+
         let d = min.val + max.val;
 
         if (d === 0) {
-            res.push(`Move $${round(max.val)} from ${keys[max.idx]} to ${keys[min.idx]}`)
+            const displayMax = round(max.val)
+            res.push(`Move $${displayMax} from ${fromCol} to ${toCol}`)
         } else if (d > 0) {
-            res.push(`Move $${round(Math.abs(min.val))} from ${keys[max.idx]} to ${keys[min.idx]}`)
+            const displayMin = round(Math.abs(min.val))
+            res.push(`Move $${displayMin} from ${fromCol} to ${toCol}`)
             maxHeap.insert(d, max.idx)
         } else {
-            res.push(`Move $${round(Math.abs(max.val))} from ${keys[max.idx]} to ${keys[min.idx]}`)
+            const displayMax = round(Math.abs(max.val))
+            res.push(`Move $${displayMax} from ${fromCol} to ${toCol}`)
             minHeap.insert(d, min.idx)
         }
     }

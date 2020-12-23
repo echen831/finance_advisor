@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { dispatchSRLIdx } from '../../actions/risk_level_idx_actions';
+import { RowItem } from './row_item';
+import { RiskLevelSelector } from './risk_level_selector';
 
 import './home.css';
 
@@ -10,33 +12,27 @@ const Home = (props) => {
 
     const [currIdx, setCurrIdx] = useState(props.currentIdx);
 
-    const handleUpdate = (idx) => {
-        props.setCurrentIdx(idx)
-        setCurrIdx(idx);
-    }
+    useEffect(() => {
+        props.setCurrentIdx(currIdx)
+    }, [currIdx])
+
+    // const handleUpdate = (idx) => {
+    //     props.setCurrentIdx(idx)
+    //     setCurrIdx(idx);
+    // }
 
     return (
         <div className='home-container'>
             <h1>This is the Home Page</h1>
-            <h2>{currIdx}</h2>
+            <RiskLevelSelector setCurrIdx={setCurrIdx}/>
+            {/* <select name="" id="" onChange={(e)=> setCurrIdx(Number(e.target.value))}>
+                {[1,2,3,4,5,6,7,8,9,10].map(level => (
+                    <option value={level} key={level}>{level}</option>
+                ))}
+            </select> */}
             <ul className='risk-container'>
                 {props.riskLevels.map((risk, idx) => {
-                    const highlighted = currIdx === idx ? "risk selected" : 'risk'
-                    return (
-                        idx === 0 ?
-                        <div className='risk'>
-                                <li>Risk Level</li>
-                                {Object.keys(risk).map(key => (
-                                    <li key={key}>{key}</li>
-                                ))}
-                        </div>
-                        : <div key={idx} className={highlighted} onClick={() => handleUpdate(idx)}>
-                            <li>{idx}</li>
-                                {Object.keys(risk).map(key => (
-                                    <li key={key}>{risk[key] * 100}%</li>
-                                ))}
-                        </div>
-                    )
+                    return <RowItem idx={idx} risk={risk} currIdx={currIdx} />
                 } )}
             </ul>
             <p><Link to='/calculator' style={currIdx === 0 ? { pointerEvents: "none" } : null}>Continue</Link></p>
@@ -44,6 +40,10 @@ const Home = (props) => {
         </div>
     )
 }
+
+/**
+ * Container for Home component
+ */
 
 const mSTP = ( state ) => {
     return {

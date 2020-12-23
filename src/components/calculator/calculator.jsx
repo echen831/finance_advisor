@@ -23,6 +23,10 @@ const Calculator = (props) => {
     )
 }
 
+/**
+ * Container for Calculator component
+ */
+
 const mSTP = (state) => {
     const currentIdx = state.entities.current.currentIdx
     return {

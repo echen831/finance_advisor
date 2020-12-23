@@ -2,6 +2,14 @@ ul, li {
     list-style: none;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
 .App {
     width: 100%;
 }
