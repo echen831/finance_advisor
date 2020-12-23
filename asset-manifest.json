@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/echen831/finance_advisor/static/css/main.76d80ac1.chunk.css",
+    "main.js": "/echen831/finance_advisor/static/js/main.2889edaa.chunk.js",
+    "main.js.map": "/echen831/finance_advisor/static/js/main.2889edaa.chunk.js.map",
+    "runtime-main.js": "/echen831/finance_advisor/static/js/runtime-main.40e0aeb1.js",
+    "runtime-main.js.map": "/echen831/finance_advisor/static/js/runtime-main.40e0aeb1.js.map",
+    "static/js/2.a3d55d82.chunk.js": "/echen831/finance_advisor/static/js/2.a3d55d82.chunk.js",
+    "static/js/2.a3d55d82.chunk.js.map": "/echen831/finance_advisor/static/js/2.a3d55d82.chunk.js.map",
+    "index.html": "/echen831/finance_advisor/index.html",
+    "static/css/main.76d80ac1.chunk.css.map": "/echen831/finance_advisor/static/css/main.76d80ac1.chunk.css.map",
+    "static/js/2.a3d55d82.chunk.js.LICENSE.txt": "/echen831/finance_advisor/static/js/2.a3d55d82.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40e0aeb1.js",
+    "static/js/2.a3d55d82.chunk.js",
+    "static/css/main.76d80ac1.chunk.css",
+    "static/js/main.2889edaa.chunk.js"
+  ]
+}
