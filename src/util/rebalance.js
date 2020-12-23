@@ -11,8 +11,8 @@ export const rebalance = (diff, keys) => {
         let min = minHeap.deleteMin();
         let max = maxHeap.deleteMax();
 
-        const fromCol = keys[max.idx]
-        const toCol = keys[min.idx]
+        const fromCol = keys[min.idx]
+        const toCol = keys[max.idx]
 
         let d = min.val + max.val;
 
@@ -50,7 +50,7 @@ const buildMinMaxHeap = (array) => {
     return [minHeap, maxHeap]
 }
 
-const findDiff = (arr1, arr2) => {
+export const findDiff = (arr1, arr2) => {
     let res = [];
 
     for (let i = 0; i < arr1.length; i++) {
@@ -60,11 +60,6 @@ const findDiff = (arr1, arr2) => {
     return res;
 }
 
-const round = (num) => {
+export const round = (num) => {
     return Math.round((num + Number.EPSILON) * 100) / 100
 }
-
-let a = [1,2,3,4,5]
-let b = [5,4,3,2,1]
-
-console.log(rebalance(a,b))
