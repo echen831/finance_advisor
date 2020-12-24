@@ -1,3 +1,7 @@
+.splash {
+    background-color: rgba(129, 233, 174, 0.274);
+}
+
 .content-container {
     width: 100%;
     display: flex;

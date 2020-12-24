@@ -8,7 +8,7 @@ const VERTICAL_STYLES = [
     'flexDirection': "column"
   },
   {
-      'width': "100%"
+      'width': "100%",
   }
 
 ]
@@ -31,18 +31,24 @@ const Splash = () => {
     const displayStyle = windowWidth <= 900 ? VERTICAL_STYLES : [];
 
     return (
-        <div className='page-container'>
+        <div className='page-container splash'>
             <Navbar page={"splash"}/>
             <div className='content-container' style={displayStyle[0]}>
                 <div className='intro-container' style={displayStyle[1]}>
                     <h2>Welcome to Easy Finance Advisor</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet ultricies justo, non porttitor mauris cursus et. Vivamus a sodales nulla, vitae commodo eros. Vestibulum auctor, justo pharetra vehicula convallis, est augue tincidunt mauris, ac mattis magna lorem vel sapien. Curabitur rutrum orci metus, vitae finibus quam sollicitudin vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In at semper eros. Morbi aliquet lacus et est mattis feugiat. Aliquam faucibus quis neque eu ullamcorper. Sed in dolor nunc. Suspendisse varius magna nec ipsum pellentesque, tempus tempor dolor laoreet. Integer accumsan eu nunc eu commodo. Donec sed arcu eget ex euismod placerat non eu ligula. Fusce lobortis lorem nunc, vel viverra nisl ornare vel. Aenean ac tristique nibh, at sagittis magna. Phasellus efficitur at erat sit amet sodales. 
+                        Easy Finance Advisor helps you determine how much money 
+                        you need to invest in options based on different risk 
+                        levels.   Choose a risk level and enter amounts of money 
+                        you wish to invest in each option.  Easy Finance Advisor 
+                        will suggest appropriate adjustments for you based on 
+                        the risk level you chose.  
                     </p>
+                    <p> Click Get Started to get started today! </p>
                 </div>
                 <div className='video-container' style={displayStyle[1]}>
                     <ReactPlayer 
-                        url='https://www.youtube.com/watch?v=ysz5S6PUM-U' 
+                        url='https://vimeo.com/494534666' 
                         controls
                     />
                 </div>

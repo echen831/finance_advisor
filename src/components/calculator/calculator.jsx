@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
 import { Navbar } from '../navbar/navbar';
-import { Button, LinkButton } from '../portfolio/buttons';
+import { Header } from './header';
+import { Table } from './table';
 import './calculator.css'
 
 const INITIAL_VALUES = { 'Bonds': 0, 
@@ -13,12 +14,9 @@ const INITIAL_VALUES = { 'Bonds': 0,
                         };
 
 const VERTICAL_STYLES = [
-    {
-        'flexDirection': 'column'
-    },
-    {
-        'width': '100%',
-        'marginBottom': '1%'
+    { 'flexDirection': 'column' },
+    { 'width': '100%',
+      'marginBottom': '1%'
     }
 ]
 
@@ -87,58 +85,18 @@ const Calculator = (props) => {
         <div className='page-container'>
             <Navbar/>
             <h3>Risk Level: {props.riskLevelIdx}</h3>
-            <div className='header' style={displayStyle[0]}>
-                <ul className='header-titles' style={displayStyle[1]}>
-                    {options.map(option => {
-                        return <li>{option}: {props.data[option] * 100}%</li>
-                    })}
-                </ul>
-                <div className='header-btn' style={displayStyle[1]}>
-                    <Button text='Rebalance' 
-                            handleClick={handleSetTargetAmount}
-                            currIdx={inputSum}/>
-                    <LinkButton currIdx={11} 
-                                link={'portfolio'}
-                                text={'Back'}/>
-                </div>        
-            </div>
-
-            <div className='table-container' style={displayStyle[0]}>
-                <div className='input-container' style={displayStyle[1]}>
-                    <div className='input'>
-                        <li>Options</li>
-                        <li>Current Amount</li>
-                        <li>Difference</li>
-                        <li>New Amount</li>
-                    </div>
-                    {options.map((option, idx) => {
-                        const displayDiff = (difference[idx] > 0) ? 
-                                            `+${difference[idx]}`: 
-                                            difference[idx];
-                        const displayDiffColor = difference[idx] !== 0 ? 
-                                                difference[idx] < 0 ? 
-                                                'red' : 'green' : ''; 
-                        return(
-                            <div key={idx} className='input'>
-                                <li>{option}:</li>
-                                <li>
-                                    <input type="number" 
-                                        onChange={(e) => handleInputChange(e, option)}/>
-                                </li>
-                                <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>
-                                <li>{showAmt ? targetValues[option] : null}</li>
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className='suggestion-container' style={displayStyle[1]}>
-                    <li>Suggested Transactions</li>
-                        {suggestions.map((str,idx) => {
-                            return <li key={idx}>{str}</li>
-                        })}
-                </div>
-            
-            </div>
+            <Header displayStyle={displayStyle}
+                    data={props.data}
+                    options={options}
+                    inputSum={inputSum}
+                    handleSetTargetAmount={handleSetTargetAmount}/>
+            <Table displayStyle={displayStyle}
+                    options={options}
+                    difference={difference}
+                    showAmt={showAmt}
+                    targetValues={targetValues}
+                    suggestions={suggestions}
+                    handleInputChange={handleInputChange}/>
         </div>
     )
 }
