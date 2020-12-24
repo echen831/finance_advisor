@@ -11,15 +11,15 @@ import './home.css';
 
 
 
-const Home = (props) => {
+const Home = ({currentIdx, setCurrentIdx, riskLevels}) => {
 
-    const [currIdx, setCurrIdx] = useState(props.currentIdx);
+    const [currIdx, setCurrIdx] = useState(currentIdx);
     const [showChart, setShowChart] = useState(false)
     const buttonText = showChart ? "Table" : "Chart"
 
     useEffect(() => {
-        props.setCurrentIdx(currIdx)
-    }, [currIdx])
+        setCurrentIdx(currIdx)
+    }, [currIdx, setCurrentIdx])
 
     const handleToggle = () => {
         setShowChart(!showChart)
@@ -38,9 +38,9 @@ const Home = (props) => {
             </div>
             <div className='chart-container'>
                 {
-                    showChart ? <Chart data={props.riskLevels[currIdx]}/> :
+                    showChart ? <Chart data={riskLevels[currIdx]}/> :
                     <ul className='risk-container'>
-                        {props.riskLevels.map((risk, idx) => {
+                        {riskLevels.map((risk, idx) => {
                             return <RowItem idx={idx} 
                                             risk={risk} 
                                             currIdx={currIdx}/>

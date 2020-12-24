@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
 import { Navbar } from '../navbar/navbar';
@@ -13,25 +13,29 @@ const Calculator = (props) => {
     const [targetValues, setTargetValues] = useState(INITIAL_VALUES);
     const [difference, setDifference ] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
+    const [showAmt, setShowAmt] = useState(false)
     const options = Object.keys(props.data)
 
+    // useEffect(() => {
+    // }, [inputs])
+    
     useEffect(() => {
         setInputSum(Object.values(inputs).reduce((a,c) => a + c, 0))
-    }, [inputs])
-
-    useEffect(() => {
         setDifference(findDiff(Object.values(targetValues), Object.values(inputs)))
-    },[targetValues])
+    },[targetValues, inputs])
 
     useEffect(() => {
         setSuggestions(rebalance(difference, options))
     }, [difference, options])
 
     const handleInputChange = (e, option) => {
+        setShowAmt(false);
+        setSuggestions([]);
         setInputs({...inputs, [option]: Number(e.target.value)})
     }
 
     const handleSetTargetAmount = () => {
+        setShowAmt(true)
         setTargetValues(
             {
                 'Bonds': calcTargetAmount('Bonds', props.data),
@@ -42,6 +46,7 @@ const Calculator = (props) => {
             }
         )
     }
+
 
     const calcTargetAmount = (field, targetPercentage) => {
         return round(inputSum * targetPercentage[field])
@@ -57,43 +62,45 @@ const Calculator = (props) => {
                 })}
                 <Button text='Rebalance' 
                         handleClick={handleSetTargetAmount}
-                        currIdx={props.riskLevelIdx}/>
+                        currIdx={inputSum}/>
                 <LinkButton currIdx={11} link={'home'}/>
             </div>
 
-            <div className='input-container'>
-                <div className='input'>
-                    <li>Option</li>
-                    <li>Your Input</li>
-                    <li>Difference</li>
-                    <li>New Amount</li>
+            <div className='table-container'>
+                <div className='input-container'>
+                    <div className='input'>
+                        <li>Option</li>
+                        <li>Current Amount</li>
+                        <li>Difference</li>
+                        <li>New Amount</li>
+                    </div>
+                    {options.map((option, idx) => {
+                        const displayDiff = (difference[idx] > 0) ? 
+                                            `+${difference[idx]}`: 
+                                            difference[idx];
+                        const displayDiffColor = difference[idx] !== 0 ? 
+                                                difference[idx] < 0 ? 
+                                                'red' : 'green' : ''; 
+                        return(
+                            <div key={idx} className='input'>
+                                <li>{option}:</li>
+                                <li>
+                                    <input type="number" 
+                                        onChange={(e) => handleInputChange(e, option)}/>
+                                </li>
+                                <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>
+                                <li>{showAmt ? targetValues[option] : null}</li>
+                            </div>
+                        )
+                    })}
                 </div>
-                {options.map((option, idx) => {
-                    const displayDiff = (difference[idx] > 0) ? 
-                                        `+${difference[idx]}`: 
-                                        difference[idx];
-                    const displayDiffColor = difference[idx] !== 0 ? 
-                                             difference[idx] > 0 ? 
-                                             'red' : 'green' : ''; 
-                    return(
-                        <div key={idx} className='input'>
-                            <li>{option}:</li>
-                            <li>
-                                <input type="number" 
-                                       onChange={(e) => handleInputChange(e, option)}/>
-                            </li>
-                            <li id={displayDiffColor}>{displayDiff}</li>
-                            <li>{targetValues[option]}</li>
-                        </div>
-                    )
-                })}
-            </div>
+                <div className='suggestion-container'>
+                    <li>Suggested Transactions</li>
+                        {suggestions.map(str => {
+                            return <li>{str}</li>
+                        })}
+                    </div>
             
-            <div>
-                <h4>Suggested Transactions</h4>
-                {suggestions.map(str => {
-                    return <li>{str}</li>
-                })}
             </div>
         </div>
     )
