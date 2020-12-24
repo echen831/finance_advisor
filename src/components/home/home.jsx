@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { dispatchSRLIdx } from '../../actions/risk_level_idx_actions';
 import { RowItem } from './row_item';
 import { RiskLevelSelector } from './risk_level_selector';
@@ -8,7 +7,7 @@ import { ContinueButton, ToggleButton } from './buttons';
 import { Chart } from './chart';
 
 import './home.css';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+
 
 
 const Home = (props) => {
@@ -34,7 +33,9 @@ const Home = (props) => {
                     showChart ? <Chart data={props.riskLevels[currIdx]}/> :
                     <ul className='risk-container'>
                         {props.riskLevels.map((risk, idx) => {
-                            return <RowItem idx={idx} risk={risk} currIdx={currIdx}/>
+                            return <RowItem idx={idx} 
+                                            risk={risk} 
+                                            currIdx={currIdx}/>
                         } )}
                     </ul>
                 }
