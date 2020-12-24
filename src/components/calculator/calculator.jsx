@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
 import { Navbar } from '../navbar/navbar';
-import { Button, LinkButton } from '../home/buttons';
+import { Button, LinkButton } from '../portfolio/buttons';
 import './calculator.css'
 
 const INITIAL_VALUES = { 'Bonds': 0, 'Large Cap': 0, 'Mid Cap': 0, 'Foreign': 0, 'Small Cap': 0 };
@@ -16,17 +16,17 @@ const Calculator = (props) => {
     const [showAmt, setShowAmt] = useState(false)
     const options = Object.keys(props.data)
 
-    // useEffect(() => {
-    // }, [inputs])
-    
     useEffect(() => {
         setInputSum(Object.values(inputs).reduce((a,c) => a + c, 0))
+    }, [inputs])
+    
+    useEffect(() => {
         setDifference(findDiff(Object.values(targetValues), Object.values(inputs)))
-    },[targetValues, inputs])
+    },[targetValues])
 
     useEffect(() => {
         setSuggestions(rebalance(difference, options))
-    }, [difference, options])
+    }, [difference])
 
     const handleInputChange = (e, option) => {
         setShowAmt(false);
@@ -47,13 +47,12 @@ const Calculator = (props) => {
         )
     }
 
-
     const calcTargetAmount = (field, targetPercentage) => {
         return round(inputSum * targetPercentage[field])
     }
     
     return (
-        <div className='calculator-container'>
+        <div className='page-container'>
             <Navbar/>
             <h3>Risk Level: {props.riskLevelIdx}</h3>
             <div className='header'>
@@ -63,13 +62,16 @@ const Calculator = (props) => {
                 <Button text='Rebalance' 
                         handleClick={handleSetTargetAmount}
                         currIdx={inputSum}/>
-                <LinkButton currIdx={11} link={'home'}/>
+                <LinkButton currIdx={11} 
+                            link={'portfolio'}
+                            text={'Back'}/>
+                            
             </div>
 
             <div className='table-container'>
                 <div className='input-container'>
                     <div className='input'>
-                        <li>Option</li>
+                        <li>Options</li>
                         <li>Current Amount</li>
                         <li>Difference</li>
                         <li>New Amount</li>

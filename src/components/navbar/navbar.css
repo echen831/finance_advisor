@@ -1,7 +1,24 @@
 .navbar-header {
+    position: relative;
     width: 100%;
     background-color:  rgba(67, 183, 255, 0.25);
     box-shadow: 0 4px 6px -6px #222;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-header h1 {
+    display: flex;
     justify-content: center;
+    padding-left: 10%;
+    width: 80%;
+}
+
+
+.navbar-header a:link {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    margin-right: 5%;
 }

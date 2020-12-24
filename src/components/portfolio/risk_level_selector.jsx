@@ -4,9 +4,9 @@ export const RiskLevelSelector = ( {setCurrIdx} ) => {
 
     return (
         <div className='selector'>
-            <select onChange={(e) => setCurrIdx(Number(e.target.value))}>
-                <option value="none" 
-                        selected disabled hidden >
+            <select defaultValue='Select Risk Level' onChange={(e) => setCurrIdx(Number(e.target.value))}>
+                <option 
+                        disabled hidden >
                         Select Risk Level
                 </option>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(level => (

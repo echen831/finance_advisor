@@ -7,11 +7,11 @@ import { LinkButton, Button } from './buttons';
 import { Navbar } from '../navbar/navbar';
 import { Chart } from './chart';
 
-import './home.css';
+import './portfolio.css';
 
 
 
-const Home = ({currentIdx, setCurrentIdx, riskLevels}) => {
+const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
 
     const [currIdx, setCurrIdx] = useState(currentIdx);
     const [showChart, setShowChart] = useState(false)
@@ -26,7 +26,7 @@ const Home = ({currentIdx, setCurrentIdx, riskLevels}) => {
     }
 
     return (
-        <div className='home-container'>
+        <div className='page-container'>
             <Navbar/>
             <h4>Select a Risk Level to get started</h4>
             <div className='select-container'>
@@ -34,7 +34,10 @@ const Home = ({currentIdx, setCurrentIdx, riskLevels}) => {
                 <Button text={buttonText}
                               handleClick={handleToggle}
                               currIdx={currIdx}/>
-                <LinkButton currIdx={currIdx} link={'calculator'}/>
+                <LinkButton currIdx={currIdx} 
+                            link={'calculator'} 
+                            text={'Calculator'}/>
+
             </div>
             <div className='chart-container'>
                 {
@@ -54,7 +57,7 @@ const Home = ({currentIdx, setCurrentIdx, riskLevels}) => {
 }
 
 /**
- * Container for Home component
+ * Container for Portfolio component
  */
 
 const mSTP = ( state ) => {
@@ -70,4 +73,4 @@ const mDTP = ( dispatch ) => {
     }
 } 
 
-export default connect(mSTP, mDTP)(Home)
+export default connect(mSTP, mDTP)(Portfolio)

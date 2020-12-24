@@ -1,0 +1,17 @@
+.content-container {
+    width: 100%;
+    display: flex;
+    margin-top: 1%;
+}
+
+.intro-container {
+    width: 40%;
+    background-color: royalblue;
+    padding: 2%;
+}
+
+.video-container {
+    width: 60%;
+    background-color: red;
+}
+
