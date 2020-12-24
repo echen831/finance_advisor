@@ -1,34 +1,57 @@
+.home-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .select-container {
     display: flex;
+    justify-content: start;
+    width: 60%;
+}
+
+.select-container select {
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: rgba(135, 206, 250, 0.25);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    width: 60%;
 }
 
 .risk-container {
-    width: 60%;
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(1, auto);
     background-color: rgba(135, 206, 250, 0.25);
+    padding: 1%;
     border-radius: 4px;
 }
 
 .risk-header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     border-bottom: 1px solid grey;
 }
 
 .risk {
     display: flex;
     justify-content: space-between;
-    width: 100%;
 }
 
 .risk li, .risk-header li {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12%;
-    padding: .25rem;
+    width: 15%;
+    padding: 1%;
 }
 
 .selected {
@@ -40,8 +63,8 @@
 .button-container {
     background-color: rgba(135, 206, 250, 0.25);
     border-radius: 4px;
-    padding: .25rem;
-    margin-left: .5rem;
+    padding: 1%;
+    margin-left: 3%;
     cursor: pointer;
 }
 

@@ -5,7 +5,7 @@ import Calculator from './calculator/calculator';
 import './App.css';
 export const App = () => {
   return (
-    <div>
+    <div className='App'>
       <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/calculator' component={Calculator}/>

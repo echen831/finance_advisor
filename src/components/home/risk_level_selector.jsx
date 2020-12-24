@@ -3,7 +3,7 @@ import React from 'react';
 export const RiskLevelSelector = ( {setCurrIdx} ) => {
 
     return (
-        <div>
+        <div className='selector'>
             <select onChange={(e) => setCurrIdx(Number(e.target.value))}>
                 <option value="none" 
                         selected disabled hidden >

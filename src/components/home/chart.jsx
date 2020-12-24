@@ -18,23 +18,25 @@ export const Chart = ({data}) => {
     }
   
     return (
-        <PieChart width={800} height={500} >
-            <Pie
-                data={formatData(data)}
-                cx={370}
-                cy={250}
-                innerRadius={50}
-                outerRadius={200}
-                label= "name"
-                fill="#8884d8"
-                paddingAngle={0}
-                dataKey="value"
-            >
-                {
-                    formatData(data).map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-                }
-            </Pie>
-            <Legend verticalAlign="top" height={10}></Legend>
-        </PieChart>
+        <div className='chart-container'>
+            <PieChart width={700} height={400} >
+                <Pie
+                    data={formatData(data)}
+                    cx={350}
+                    cy={200}
+                    innerRadius={50}
+                    outerRadius={150}
+                    label= "name"
+                    fill="#8884d8"
+                    paddingAngle={0}
+                    dataKey="value"
+                >
+                    {
+                        formatData(data).map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+                    }
+                </Pie>
+                <Legend verticalAlign="top" height={10}></Legend>
+            </PieChart>
+        </div>
     );
 }

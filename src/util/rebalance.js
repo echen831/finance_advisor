@@ -54,7 +54,7 @@ export const findDiff = (arr1, arr2) => {
     let res = [];
 
     for (let i = 0; i < arr1.length; i++) {
-        res[i] = arr1[i] - arr2[i];
+        res[i] = round(arr1[i] - arr2[i]);
     }
 
     return res;

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
+import { Navbar } from '../navbar/navbar';
+import { Button } from '../home/buttons';
 import './calculator.css'
 
 const INITIAL_VALUES = { 'Bonds': 0, 'Large Cap': 0, 'Mid Cap': 0, 'Foreign': 0, 'Small Cap': 0 };
@@ -44,10 +46,14 @@ const Calculator = (props) => {
     const calcTargetAmount = (field, targetPercentage) => {
         return round(inputSum * targetPercentage[field])
     }
-
+    
     return (
-        <div>
-            <h1>Risk Level: {props.riskLevelIdx}</h1>
+        <div className='calculator-container'>
+            <Navbar/>
+            <h3>Risk Level: {props.riskLevelIdx}</h3>
+            <Button text='Rebalance' 
+                    handleClick={handleSetTargetAmount}
+                    currIdx={props.riskLevelIdx}/>
             <div className='header'>
                 {options.map(option => {
                     return <li>{option}: {props.data[option] * 100}%</li>
@@ -62,22 +68,28 @@ const Calculator = (props) => {
                     <li>New Amount</li>
                 </div>
                 {options.map((option, idx) => {
-                    const displayDiff = (difference[idx] > 0) ? `+${difference[idx]}` : difference[idx]
-                    const displayDiffColor = difference[idx] !== 0 ? difference[idx] > 0 ? 'red' : 'green' : ''; 
+                    const displayDiff = (difference[idx] > 0) ? 
+                                        `+${difference[idx]}`: 
+                                        difference[idx];
+                    const displayDiffColor = difference[idx] !== 0 ? 
+                                             difference[idx] > 0 ? 
+                                             'red' : 'green' : ''; 
                     return(
                         <div key={idx} className='input'>
                             <li>{option}:</li>
-                            <li><input type="number" onChange={(e) => handleInputChange(e, option)} /></li>
+                            <li>
+                                <input type="number" 
+                                       onChange={(e) => handleInputChange(e, option)}/>
+                            </li>
                             <li id={displayDiffColor}>{displayDiff}</li>
                             <li>{targetValues[option]}</li>
                         </div>
                     )
                 })}
             </div>
-
-            <button onClick={handleSetTargetAmount}>Rebalance</button>
-
+            
             <div>
+                <h4>Suggested Transactions</h4>
                 {suggestions.map(str => {
                     return <li>{str}</li>
                 })}

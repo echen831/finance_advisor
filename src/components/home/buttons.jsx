@@ -10,11 +10,12 @@ export const ContinueButton = ({ currIdx }) => {
             </Link>
 }
 
-export const ToggleButton = ({showChart, setShowChart}) => {
-    const text = showChart ? "Table" : "Chart"
+export const Button = ({text, handleClick, currIdx }) => {
+    const style = currIdx === 0 ? { pointerEvents: "none", color: 'grey' } : null
     return (
         <li className='button-container'
-            onClick={() => setShowChart(!showChart)}
+            onClick={() => handleClick()}
+            style={style}
         >{text}</li>
     )
 }
