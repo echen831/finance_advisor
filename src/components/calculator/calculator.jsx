@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
 import { Navbar } from '../navbar/navbar';
-import { Button } from '../home/buttons';
+import { Button, LinkButton } from '../home/buttons';
 import './calculator.css'
 
 const INITIAL_VALUES = { 'Bonds': 0, 'Large Cap': 0, 'Mid Cap': 0, 'Foreign': 0, 'Small Cap': 0 };
@@ -25,7 +25,7 @@ const Calculator = (props) => {
 
     useEffect(() => {
         setSuggestions(rebalance(difference, options))
-    }, [difference])
+    }, [difference, options])
 
     const handleInputChange = (e, option) => {
         setInputs({...inputs, [option]: Number(e.target.value)})
@@ -51,13 +51,14 @@ const Calculator = (props) => {
         <div className='calculator-container'>
             <Navbar/>
             <h3>Risk Level: {props.riskLevelIdx}</h3>
-            <Button text='Rebalance' 
-                    handleClick={handleSetTargetAmount}
-                    currIdx={props.riskLevelIdx}/>
             <div className='header'>
                 {options.map(option => {
                     return <li>{option}: {props.data[option] * 100}%</li>
                 })}
+                <Button text='Rebalance' 
+                        handleClick={handleSetTargetAmount}
+                        currIdx={props.riskLevelIdx}/>
+                <LinkButton currIdx={11} link={'home'}/>
             </div>
 
             <div className='input-container'>

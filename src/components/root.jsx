@@ -6,7 +6,7 @@ import { App }from './App';
 export const Root = ({store}) => {
    return (
         <Provider store={store}>
-           <HashRouter basename={process.env.PUBLIC_URL}>
+           <HashRouter >
                 <App/>
             </HashRouter>
         </Provider>

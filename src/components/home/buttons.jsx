@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const ContinueButton = ({ currIdx }) => {
+export const LinkButton = ({ currIdx, link }) => {
     const style = currIdx === 0 ? { pointerEvents: "none", color: 'grey'} : null
-    return <Link to='/calculator'
+    return <Link to={`/${link}`}
                  className='button-container' 
                  style={style}>
-                 Continue
+                 {link.toUpperCase()}
             </Link>
 }
 
