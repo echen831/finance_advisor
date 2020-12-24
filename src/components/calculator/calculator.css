@@ -1,15 +1,29 @@
 
 .header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 2%;
     width: 80%;
 }
 
+.header-titles {
+    display: flex;
+    font-size: 120%;
+    width: 80%;
+}
+
+.header-btn {
+    display: flex;
+    justify-content: space-between;
+    font-size: 120%;
+    width: 30%;
+}
+
+
 .header li {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .table-container {
