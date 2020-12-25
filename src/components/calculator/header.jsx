@@ -7,7 +7,7 @@ export const Header = (props) => {
         <div className='header' style={displayStyle[0]}>
             <ul className='header-titles' style={displayStyle[1]}>
                 {options.map(option => {
-                    return <li>{option}: {data[option] * 100}%</li>
+                    return <li key={option}>{option}: {data[option] * 100}%</li>
                 })}
             </ul>
             <div className='header-btn' style={displayStyle[1]}>

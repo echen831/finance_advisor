@@ -1,10 +1,12 @@
 import React from 'react';
 
-export const RiskLevelSelector = ( {setCurrIdx} ) => {
+export const RiskLevelSelector = ( {setCurrIdx, currIdx} ) => {
 
+    const defaultVal = currIdx === 0 ? "Select Risk Level" : currIdx;
     return (
         <div className='selector'>
-            <select defaultValue='Select Risk Level' onChange={(e) => setCurrIdx(Number(e.target.value))}>
+            <select defaultValue={defaultVal} 
+                    onChange={(e) => setCurrIdx(Number(e.target.value))}>
                 <option 
                         disabled hidden >
                         Select Risk Level
