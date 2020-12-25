@@ -8,7 +8,6 @@ of money you are willing to invest in each option.  Easy Finance Advisor will re
 
 <img src='public/pic_1.png' width='600' height='375' >
 
-
 ## Technologies Used
 
 * React
@@ -77,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ```
-Ustilized Recharts library for simple and smoothe pie chart rendering.
+Utilized Recharts library for simple-to-use and smoothe pie chart rendering.
 ```
              <PieChart width={700} height={400} >
                 <Pie
