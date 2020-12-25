@@ -6,7 +6,7 @@ of money you are willing to invest in each option.  Easy Finance Advisor will re
 
 ### Please check it out [here](https://easy-finance-advisor.herokuapp.com/#/).
 
-<img src='public/pic_1.png' width='600' height='375' >
+<img src='public/pic_1.png' width='600' height='325' >
 
 ## Technologies Used
 
