@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Easy Finance Advisor helps you determine how much money you should put in each investment option based on a list of risk levels.  Chose a risk level and enter amounts
+of money you are willing to invest in each option.  Easy Finance Advisor will rebalance and suggest amounts you need to put in each option.
 
-## Available Scripts
 
-In the project directory, you can run:
+### Please check it out [here](https://easy-finance-advisor.herokuapp.com/#/).
 
-### `npm start`
+<img src='public/pic_1.png' width='600' height='375' >
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+* React
+* Redux
+* Javascript
+* HTML/CSS
+* Recharts
+* React Video
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Code Snippets
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I wrote the rebalance function utilizing heaps, a min heap and a max heap, to keep track of the min and max values.  This represents which investment options the user needs to transfer money to. The function returns an array of suggested transfers to map out in the component.  I also designed the heaps to take in a node rather than just the value, as the node will hold the value and also the index of where that value is from in relation to a set of keys, an array with the order of investment options.  Therefore, I have fast access to know which option the the amount needs to be transfered to and from. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+export const rebalance = (diff, keys) => {
+    let heaps = buildMinMaxHeap(diff);
+    let minHeap = heaps[0];
+    let maxHeap = heaps[1];
+    let res = [];
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    while (minHeap.array.length > 1 && maxHeap.array.length > 1) {
+        let min = minHeap.deleteMin();
+        let max = maxHeap.deleteMax();
 
-### `npm run eject`
+        const fromCol = keys[min.idx]
+        const toCol = keys[max.idx]
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        let d = min.val + max.val;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        if (d === 0) {
+            const displayMax = round(max.val)
+            res.push(`Transfer $${displayMax} from ${fromCol} to ${toCol}`)
+        } else if (d > 0) {
+            const displayMin = round(Math.abs(min.val))
+            res.push(`Transfer $${displayMin} from ${fromCol} to ${toCol}`)
+            maxHeap.insert(d, max.idx)
+        } else {
+            const displayMax = round(Math.abs(max.val))
+            res.push(`Transfer $${displayMax} from ${fromCol} to ${toCol}`)
+            minHeap.insert(d, min.idx)
+        }
+    }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    return res;
 
-## Learn More
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+I used the Redux store to keep track of the set of risk level options and had it save to the store right from the start as preloadededState so that all components have access to them as soon as the DOM loads.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('root');
+  const preloadedState = {
+    entities: {
+      riskLevels: RiskLevels,
+      current: {currentIdx: 0}
+    }
+  }
+  const store = configureStore(preloadedState);
 
-### Code Splitting
+  ReactDOM.render(<Root store={store}/>, root)
+})
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+```
+Ustilized Recharts library for simple and smoothe pie chart rendering.
+```
+             <PieChart width={700} height={400} >
+                <Pie
+                    data={formatData(data)}
+                    cx={350}
+                    cy={200}
+                    innerRadius={50}
+                    outerRadius={150}
+                    label= "name"
+                    fill="#8884d8"
+                    paddingAngle={0}
+                    dataKey="value"
+                >
+                    {
+                        formatData(data).map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+                    }
+                </Pie>
+                <Legend verticalAlign="top" height={10}></Legend>
+            </PieChart>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Please be sure to visit my portfolio and github to checkout my other projects!
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[LinkedIn](https://www.linkedin.com/in/eric-chen-782b951a9/) <br>
+[Github](https://github.com/echen831) <br>
+[Portfolio](https://echen831.github.io/Eric-Chen/)
