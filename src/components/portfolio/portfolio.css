@@ -54,6 +54,9 @@
 }
 
 .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(88, 191, 255, 0.432);
     border-radius: 4px;
     padding: 1%;

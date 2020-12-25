@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Table = (props) => {
-    const { displayStyle, options, difference, showAmt, targetValues, suggestions, handleInputChange} = props;
+    const { displayStyle, options, difference, showAmt, targetValues, suggestions, handleInputChange } = props;
 
     return (
         <div className='table-container' style={displayStyle[0]}>
@@ -23,7 +23,7 @@ export const Table = (props) => {
                         <div key={idx} className='input'>
                             <li>{option}:</li>
                             <li>
-                                <input type="number"
+                                <input type="number" id='userInput' 
                                     onChange={(e) => handleInputChange(e, option)} />
                             </li>
                             <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>

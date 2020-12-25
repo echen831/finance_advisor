@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
 import { Navbar } from '../navbar/navbar';
@@ -75,6 +75,14 @@ const Calculator = (props) => {
         )
     }
 
+    const handleClear = () => {
+        let userInputs = document.querySelectorAll('[id=userInput]');
+        userInputs.forEach(input => { input.value = null })
+        setInputSum(0);
+        setShowAmt(false);
+        setDifference([]);
+    }
+
     const calcTargetAmount = (field, targetPercentage) => {
         return round(inputSum * targetPercentage[field])
     }
@@ -89,6 +97,7 @@ const Calculator = (props) => {
                     data={props.data}
                     options={options}
                     inputSum={inputSum}
+                    clear={handleClear}
                     handleSetTargetAmount={handleSetTargetAmount}/>
             <Table displayStyle={displayStyle}
                     options={options}

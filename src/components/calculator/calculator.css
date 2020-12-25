@@ -5,19 +5,23 @@
     align-items: center;
     margin-bottom: 2%;
     width: 80%;
+
 }
 
 .header-titles {
     display: flex;
     font-size: 120%;
-    width: 80%;
+    width: 75%;
 }
 
 .header-btn {
     display: flex;
-    justify-content: space-between;
     font-size: 120%;
-    width: 30%;
+    width: 25%;
+}
+
+.header-btn a:link, .header-btn li {
+    padding: .5rem;
 }
 
 
@@ -33,7 +37,7 @@
 }
 
 .input-container {
-    width: 60%;
+    width: 55%;
     padding: 1%;
     background-color: rgba(0, 255, 255, 0.144);
     border-radius: 4px;
@@ -60,7 +64,7 @@
 }
 
 .suggestion-container {
-    width: 35%;
+    width: 40%;
     background-color: rgba(156, 235, 228, 0.767);
     padding: 1%;
     border-radius: 4px;
