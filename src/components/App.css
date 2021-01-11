@@ -1,5 +1,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
     background-color: rgba(222, 255, 213, 0.5);
     padding: 0;
     margin: 0;
@@ -9,6 +10,10 @@ ul, li {
     list-style: none;
     padding: 0;
     list-style-type: none;
+}
+
+h1 {
+    font-weight: 300;
 }
 
 a:link {
