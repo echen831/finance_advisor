@@ -2,15 +2,15 @@ import React from 'react';
 import { Button, LinkButton } from '../portfolio/buttons';
 
 export const Header = (props) => {
-    const { displayStyle, data, options, handleSetTargetAmount, inputSum, clear } = props;
+    const { data, options, handleSetTargetAmount, inputSum, clear } = props;
     return (
-        <div className='header' style={displayStyle[0]}>
-            <ul className='header-titles' style={displayStyle[1]}>
+        <div className='header' >
+            <ul className='header-titles' >
                 {options.map(option => {
                     return <li key={option}>{option}: {data[option] * 100}%</li>
                 })}
             </ul>
-            <div className='header-btn' style={displayStyle[1]}>
+            <div className='header-btn'>
                 <Button text='Rebalance'
                     handleClick={handleSetTargetAmount}
                     currIdx={inputSum} />

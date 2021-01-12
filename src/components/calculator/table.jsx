@@ -1,11 +1,11 @@
 import React from 'react';
 
 export const Table = (props) => {
-    const { displayStyle, options, difference, showAmt, targetValues, suggestions, handleInputChange } = props;
+    const { options, difference, showAmt, targetValues, suggestions, handleInputChange } = props;
 
     return (
-        <div className='table-container' style={displayStyle[0]}>
-            <div className='input-container' style={displayStyle[1]}>
+        <div className='table-container' >
+            <div className='input-container' >
                 <div className='input'>
                     <li>Options</li>
                     <li>Current Amount</li>
@@ -32,7 +32,7 @@ export const Table = (props) => {
                     )
                 })}
             </div>
-            <div className='suggestion-container' style={displayStyle[1]}>
+            <div className='suggestion-container'>
                 <li>Suggested Transactions</li>
                 {suggestions.map((str, idx) => {
                     return <li key={idx}>{str}</li>

@@ -33,8 +33,8 @@ const Splash = () => {
     return (
         <div className='page-container splash'>
             <Navbar page={"splash"}/>
-            <div className='content-container' style={displayStyle[0]}>
-                <div className='intro-container' style={displayStyle[1]}>
+            <div className='content-container' >
+                <div className='intro-container' >
                     <h2>Welcome to Easy Finance Advisor</h2>
                     <p>
                         Easy Finance Advisor helps you determine how much money 
@@ -46,7 +46,7 @@ const Splash = () => {
                     </p>
                     <p> Click Get Started to get started today! </p>
                 </div>
-                <div className='video-container' style={displayStyle[1]}>
+                <div className='video-container' >
                     <ReactPlayer 
                         url='https://vimeo.com/494534666' 
                         controls

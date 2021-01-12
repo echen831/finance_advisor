@@ -2,6 +2,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     background-color: rgba(222, 255, 213, 0.5);
+    height: auto;
     padding: 0;
     margin: 0;
 }
@@ -14,6 +15,11 @@ ul, li {
 
 h1 {
     font-weight: 300;
+}
+
+img { 
+    max-width: 100%; 
+    height: auto; 
 }
 
 a:link {
@@ -34,6 +40,67 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
   outline: none;
+}
+
+/* Media Queries: Tablet Landscape */
+/* @media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}  
+} */
+
+/* Media Queries: Tabled Portrait */
+/* @media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+} */
+
+/* @media (min-device-width:600px) {
+    img[data-src-600px] {
+        content: attr(data-src-600px, url);
+    }
+} */
+
+/* @media (min-device-width:800px) {
+    img[data-src-800px] {
+        content: attr(data-src-800px, url);
+    }
+} */
+
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+    }
+    .header .content-container {
+        flex-direction: column;
+    }
+
+    .content-container div {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        height: 500px;
+    }
+
+    .navbar .flex, .content-container {
+        flex-direction: column;
+    }
+    
+    .content-container div {
+        width: 100%;
+    }
+
+    .header, .table-container, .header-titles {
+        flex-direction: column;
+    }
+
+    .input-container, .header-titles, .suggestion-container, .header-btn {
+        width: 100%;
+        margin-bottom: 1%;
+    }
+
 }
 
 .App {
