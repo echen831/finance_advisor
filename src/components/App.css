@@ -81,7 +81,7 @@ input[type=number] {
 
 @media (max-width: 500px) {
     .navbar {
-        height: 500px;
+        height: auto;
     }
 
     .navbar .flex, .content-container {

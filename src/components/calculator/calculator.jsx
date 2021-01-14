@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
 import { Navbar } from '../navbar/navbar';
@@ -23,6 +24,7 @@ const VERTICAL_STYLES = [
 
 
 const Calculator = (props) => {
+    const history = useHistory();
     const [inputSum, setInputSum] = useState(0);
     const [inputs, setInputs] = useState(INITIAL_VALUES);
     const [targetValues, setTargetValues] = useState(INITIAL_VALUES);
@@ -32,17 +34,21 @@ const Calculator = (props) => {
     const options = Object.keys(props.data)
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const resize = () => {
-        setWindowWidth(window.innerWidth)
-    }
+    // const resize = () => {
+    //     setWindowWidth(window.innerWidth)
+    // }
+    // useEffect(() => {
+    //     window.addEventListener('resize', resize);
 
+    //     return () => {
+    //         window.removeEventListener('resize', resize)
+    //     }
+    // }, [windowWidth])
     useEffect(() => {
-        window.addEventListener('resize', resize);
-
-        return () => {
-            window.removeEventListener('resize', resize)
+        if (props.riskLevelIdx < 1 || props.riskLevelIdx > 10) {
+            history.push('/portfolio')
         }
-    }, [windowWidth])
+    })
 
     useEffect(() => {
         setInputSum(Object.values(inputs).reduce((a,c) => a + c, 0))
