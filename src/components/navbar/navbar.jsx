@@ -13,16 +13,12 @@ export const Navbar = ({ page }) => {
                 <Link to=''>Home</Link> :
                 <Link to='/portfolio'>Get Started</Link>
     return(
-        <div className='navbar'>
-            <div className='navbar-container flex'>              
-                <h1 className='logo'>Easy Finance Advisor</h1>
-                <nav>
-                    <ul>
-                        <li>{link}</li>
-                    </ul>
-                </nav>
-            </div>
-            
-        </div>
+        <nav className='nav'>
+            <span>Easy Finance Advisor</span>
+            <ul className='link-list'>
+                <li className='link'>{link}</li>
+            </ul>
+        </nav>
+
     )
 }

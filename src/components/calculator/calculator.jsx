@@ -14,13 +14,6 @@ const INITIAL_VALUES = { 'Bonds': 0,
                          'Small Cap': 0 
                         };
 
-const VERTICAL_STYLES = [
-    { 'flexDirection': 'column' },
-    { 'width': '100%',
-      'marginBottom': '1%'
-    }
-]
-
 
 
 const Calculator = (props) => {
@@ -32,18 +25,7 @@ const Calculator = (props) => {
     const [suggestions, setSuggestions] = useState([]);
     const [showAmt, setShowAmt] = useState(false)
     const options = Object.keys(props.data)
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    // const resize = () => {
-    //     setWindowWidth(window.innerWidth)
-    // }
-    // useEffect(() => {
-    //     window.addEventListener('resize', resize);
-
-    //     return () => {
-    //         window.removeEventListener('resize', resize)
-    //     }
-    // }, [windowWidth])
     useEffect(() => {
         if (props.riskLevelIdx < 1 || props.riskLevelIdx > 10) {
             history.push('/portfolio')
@@ -92,20 +74,18 @@ const Calculator = (props) => {
     const calcTargetAmount = (field, targetPercentage) => {
         return round(inputSum * targetPercentage[field])
     }
-
-    const displayStyle = windowWidth <= 900 ? VERTICAL_STYLES : [];
     
     return (
         <div className='page-container'>
             <Navbar/>
             <h3>Risk Level: {props.riskLevelIdx}</h3>
-            <Header displayStyle={displayStyle}
+            <Header 
                     data={props.data}
                     options={options}
                     inputSum={inputSum}
                     clear={handleClear}
                     handleSetTargetAmount={handleSetTargetAmount}/>
-            <Table displayStyle={displayStyle}
+            <Table 
                     options={options}
                     difference={difference}
                     showAmt={showAmt}
