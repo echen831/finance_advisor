@@ -13,13 +13,17 @@ export const Header = (props) => {
             <div className='header-btn'>
                 <Button text='Rebalance'
                     handleClick={handleSetTargetAmount}
-                    currIdx={inputSum} />
+                    currIdx={inputSum} 
+                    classname={'btn-chart'}/>
                 <Button text='Clear'
                     handleClick={clear}
-                    currIdx={inputSum} />
+                    currIdx={inputSum} 
+                    classname={'btn-chart'}/>
                 <LinkButton currIdx={11}
                     link={'portfolio'}
-                    text={'Back'} />
+                    text={'Back'}
+                    classname={'btn-back'} 
+                    />
             </div>
         </div>
     )

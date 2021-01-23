@@ -34,10 +34,12 @@ const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
                                    currIdx={currIdx}/>
                 <Button text={buttonText}
                               handleClick={handleToggle}
-                              currIdx={currIdx}/>
+                              currIdx={currIdx}
+                              classname={'btn-chart'}/>
                 <LinkButton currIdx={currIdx} 
                             link={'calculator'} 
-                            text={'Calculator'}/>
+                            text={'Calculator'}
+                            classname={'btn-calculator'}/>
 
             </div>
             <div className='chart-container'>

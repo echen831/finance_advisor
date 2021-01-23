@@ -1,24 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const LinkButton = ({ currIdx, link, text }) => {
-    const style = currIdx === 0 ? { pointerEvents: "none", color: 'grey'} : null
+export const LinkButton = ({ currIdx, link, text, classname }) => {
+    const style = currIdx === 0 ? { pointerEvents: "none" } : null
     return (
-          <Link className='button-container' 
-                to={`/${link}`} style={style}>
-                {text}
-            </Link>
+          <button className={`btn ${classname}`} style={style}>
+            <Link    
+                    to={`/${link}`} >
+                    {text}
+                </Link>
+          </button>
     )
 
             
 }
 
-export const Button = ({text, handleClick, currIdx }) => {
-    const style = currIdx === 0 ? { pointerEvents: "none", color: 'grey' } : null
+
+
+export const Button = ({ text, handleClick, currIdx, classname }) => {
+    const style = currIdx === 0 ? { pointerEvents: "none" } : null
     return (
-        <li className='button-container'
-            onClick={() => handleClick()}
-            style={style}
-        >{text}</li>
+        <button className={`btn ${classname}`}
+                onClick={handleClick}
+                style={style}
+        >{text}</button>
     )
 }
