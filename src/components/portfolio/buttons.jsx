@@ -5,10 +5,11 @@ export const LinkButton = ({ currIdx, link, text, classname }) => {
     const style = currIdx === 0 ? { pointerEvents: "none" } : null
     return (
           <button className={`btn ${classname}`} style={style}>
-            <Link    
-                    to={`/${link}`} >
-                    {text}
-                </Link>
+            <Link 
+                className='btn-link'  
+                to={`/${link}`}>
+                {text}
+            </Link>
           </button>
     )
 
@@ -18,11 +19,11 @@ export const LinkButton = ({ currIdx, link, text, classname }) => {
 
 
 export const Button = ({ text, handleClick, currIdx, classname }) => {
-    const style = currIdx === 0 ? { pointerEvents: "none" } : null
+    // const style = currIdx === 0 ? { pointerEvents: "none" } : null
     return (
         <button className={`btn ${classname}`}
                 onClick={handleClick}
-                style={style}
+                // style={style}
         >{text}</button>
     )
 }

@@ -8,16 +8,16 @@ export const RowItem = ({ risk, idx, currIdx }) => {
 
     const rowHeader = <div className='risk-header'>
                         <li>Risk Level</li>
-                        {riskKeys.map(key => (
-                            <li key={key}>{key}</li>
+                        {riskKeys.map((key,idx) => (
+                            <li key={idx}>{key}</li>
                         ))}
                     </div>
 
     const row = <Link to='/calculator' style={clickable}>
                     <div key={idx} className={highlighted}>                 
                             <li>{idx}</li>
-                            {riskKeys.map(key => (
-                                <li key={key}>{risk[key] * 100}%</li>
+                            {riskKeys.map((key, idx) => (
+                                <li key={idx}>{risk[key] * 100}%</li>
                             ))}
                     </div>
                 </Link>               

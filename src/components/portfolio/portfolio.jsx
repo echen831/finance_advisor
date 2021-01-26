@@ -47,7 +47,8 @@ const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
                     showChart ? <Chart data={riskLevels[currIdx]}/> :
                     <ul className='risk-container'>
                         {riskLevels.map((risk, idx) => {
-                            return <RowItem idx={idx} 
+                            return <RowItem idx={idx}
+                                            key={idx} 
                                             risk={risk} 
                                             currIdx={currIdx}/>
                         } )}
