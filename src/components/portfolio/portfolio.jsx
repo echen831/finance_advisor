@@ -28,7 +28,7 @@ const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
     return (
         <div className='page-container'>
             <Navbar/>
-            <h4>Select a Risk Level to get started</h4>
+            <h2>Select a Risk Level to get started</h2>
             <div className='select-container'>
                 <RiskLevelSelector setCurrIdx={setCurrIdx} 
                                    currIdx={currIdx}/>

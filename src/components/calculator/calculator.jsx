@@ -78,7 +78,7 @@ const Calculator = (props) => {
     return (
         <div className='page-container'>
             <Navbar/>
-            <h3>Risk Level: {props.riskLevelIdx}</h3>
+            <h2>Risk Level: {props.riskLevelIdx}</h2>
             <Header 
                     data={props.data}
                     options={options}
