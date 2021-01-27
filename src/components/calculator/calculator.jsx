@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, isValidElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { rebalance, round, findDiff } from '../../util/rebalance'; 
@@ -74,6 +74,7 @@ const Calculator = (props) => {
     const calcTargetAmount = (field, targetPercentage) => {
         return round(inputSum * targetPercentage[field])
     }
+
     
     return (
         <div className='page-container'>
