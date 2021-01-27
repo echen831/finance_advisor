@@ -36,6 +36,10 @@
     border-bottom: 1px solid grey;
 }
 
+.risk1, .risk2, .risk4 {
+  flex-grow: 1;
+}
+
 .risk {
     display: flex;
     justify-content: space-between;
@@ -123,8 +127,4 @@
 .btn.btn-back:hover, .btn.btn-back:focus {
   background-color: hsl(309, 100%, 81%);
   /* box-shadow: 0 0 5px 0 hsl(309, 100%, 71%); */
-}
-
-.btn-link {
-  color: red;
 }

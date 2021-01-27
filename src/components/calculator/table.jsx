@@ -27,7 +27,7 @@ export const Table = (props) => {
                                     onChange={(e) => handleInputChange(e, option)} />
                             </li>
                             <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>
-                            <li>{showAmt ? targetValues[option] : null}</li>
+                            <li>{showAmt ? `$${targetValues[option]}` : null}</li>
                         </div>
                     )
                 })}

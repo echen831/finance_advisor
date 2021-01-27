@@ -9,7 +9,7 @@ export const RowItem = ({ risk, idx, currIdx }) => {
     const rowHeader = <div className='risk-header'>
                         <li>Risk Level</li>
                         {riskKeys.map((key,idx) => (
-                            <li key={idx}>{key}</li>
+                            <li className={`risk${idx}`} key={idx}>{key}</li>
                         ))}
                     </div>
 
@@ -17,7 +17,7 @@ export const RowItem = ({ risk, idx, currIdx }) => {
                     <div key={idx} className={highlighted}>                 
                             <li>{idx}</li>
                             {riskKeys.map((key, idx) => (
-                                <li key={idx}>{risk[key] * 100}%</li>
+                                <li key={idx} className={`risk${idx}`}>{risk[key] * 100}%</li>
                             ))}
                     </div>
                 </Link>               

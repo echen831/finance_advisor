@@ -68,6 +68,15 @@ input[type=number] {
     }
 } */
 
+@media (max-width: 950px) {
+
+    .chart-container {
+        width: 85%;
+        font-size: .85rem;
+        border-radius: .3rem;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         height: auto;
@@ -85,8 +94,9 @@ input[type=number] {
     }
 
     .chart-container {
-        width: 100%;
+        width: 95%;
         font-size: .75rem;
+        border-radius: .3rem;
     }
 }
 
@@ -113,8 +123,9 @@ input[type=number] {
     }
 
     .chart-container {
-        width: 100%;
+        width: 95%;
         font-size: .5rem;
+        border-radius: .3rem;
     }
 
 }
