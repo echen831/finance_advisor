@@ -71,32 +71,64 @@ input[type=number] {
 @media (max-width: 950px) {
 
     .chart-container {
-        width: 85%;
+        width: 75%;
         font-size: .85rem;
         border-radius: .3rem;
     }
+
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .table-container {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .input-container, .suggestion-container {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+
+
+    .intro-container {
+        width: 80%;
+    }
+
+    .header-btn {
+        margin-left: 2rem;
+    }
+
 }
 
 @media (max-width: 768px) {
     .navbar {
         height: auto;
     }
-    .header .content-container {
+    .header .content-container, .header-titles {
         flex-direction: column;
     }
 
     .content-container div {
         width: 100%;
     }
-    .input-container, .header-titles, .suggestion-container, .header-btn {
-        width: 100%;
-        margin-bottom: 1%;
+    .input-container, .suggestion-container, .header-btn {
+        width: 90%;
+        margin-bottom: 1rem;
     }
 
     .chart-container {
         width: 95%;
         font-size: .75rem;
         border-radius: .3rem;
+    }
+
+    .header-btn {
+        margin-left: 0;
     }
 }
 
@@ -105,7 +137,7 @@ input[type=number] {
         height: auto;
     }
 
-    .navbar .flex, .content-container {
+    .navbar .flex, .content-container, .header, .table-container, .header-titles{
         flex-direction: column;
     }
     
@@ -113,19 +145,19 @@ input[type=number] {
         width: 100%;
     }
 
-    .header, .table-container, .header-titles {
-        flex-direction: column;
-    }
-
-    .input-container, .header-titles, .suggestion-container, .header-btn {
-        width: auto;
-        margin-bottom: 1%;
+    .input-container, .suggestion-container, .header-btn {
+        width: 90%;
+        margin-bottom: 1rem;
     }
 
     .chart-container {
         width: 95%;
         font-size: .5rem;
         border-radius: .3rem;
+    }
+
+    .header-btn {
+        margin-left: 0;
     }
 
 }

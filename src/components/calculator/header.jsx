@@ -7,7 +7,10 @@ export const Header = (props) => {
         <div className='header' >
             <ul className='header-titles' >
                 {options.map(option => {
-                    return <li key={option}>{option}: {data[option] * 100}%</li>
+                    return (
+                        <li key={option}
+                           >{option}: {data[option] * 100}%
+                        </li>)
                 })}
             </ul>
             <div className='header-btn'>

@@ -3,32 +3,8 @@ import ReactPlayer from 'react-player'
 import { Navbar } from '../navbar/navbar';
 import './splash.css';
 
-const VERTICAL_STYLES = [
-  {
-    'flexDirection': "column"
-  },
-  {
-      'width': "100%",
-  }
-
-]
 
 const Splash = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    const resize = () => {
-        setWindowWidth(window.innerWidth)
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', resize);
-
-        return () => {
-            window.removeEventListener('resize', resize)
-        }
-    }, [windowWidth])
-
-    const displayStyle = windowWidth <= 900 ? VERTICAL_STYLES : [];
 
     return (
         <div className='page-container splash'>

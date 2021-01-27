@@ -8,7 +8,7 @@ export const Table = (props) => {
             <div className='input-container' >
                 <div className='input'>
                     <li>Options</li>
-                    <li>Current Amount</li>
+                    <li className='current-amt'>Current Amount</li>
                     <li>Difference</li>
                     <li>New Amount</li>
                 </div>
@@ -23,7 +23,7 @@ export const Table = (props) => {
                         <div key={idx} className='input'>
                             <li>{option}:</li>
                             <li>
-                                <input type="number" id='userInput' 
+                                <input type="number" id='userInput' className='current-amt'
                                     onChange={(e) => handleInputChange(e, option)} />
                             </li>
                             <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>

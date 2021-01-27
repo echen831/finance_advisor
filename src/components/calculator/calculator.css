@@ -9,14 +9,15 @@
 
 .header-titles {
     display: flex;
+    align-self: center;
     justify-content: space-between;
     flex-wrap: wrap;
     font-size: 1.2rem;
-    width: 80%;
-    flex-wrap: wrap;
 }
 
-
+.header-titles li {
+    padding: .3rem .75rem;
+}
 
 .table-container {
     display: flex;
@@ -31,6 +32,14 @@
     border-radius: 4px;
 }
 
+.current-amt {
+    flex-grow: 1;
+}
+
+.header-btn {
+    display: flex;
+    padding-left: .5rem;
+}
 
 .input {
     display: flex;
@@ -39,6 +48,7 @@
 }
 
 .input input {
+    max-width: 125px;
     width: 75%;
     height: 100%;
 }
@@ -62,13 +72,3 @@
     padding-bottom: .5rem;
 }
 
-
-
-
-#green {
-    color: green;
-}
-
-#red {
-    color: red;
-}
