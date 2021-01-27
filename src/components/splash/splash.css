@@ -11,6 +11,7 @@
 .intro-container {
     width: 40%;
     padding: 2%;
+    min-width: 300px;
 }
 
 .video-container {

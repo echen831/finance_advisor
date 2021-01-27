@@ -1,5 +1,6 @@
 .nav {
-  background-color: hsl(150, 100%, 80%);
+  background-color: rgba(76, 222, 230, 90);
+  color: white;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -20,12 +21,12 @@
 
 .link {
   padding: .5rem;
-  background-color: hsl(180, 80%, 70%);
+  background-color: rgba(68, 142,242, 95);
   border-radius: .3rem;
 }
 
 .link:hover {
-  background-color: hsl(180, 80%, 50%);
+  background-color: rgba(71, 196, 252, 99);
   border-radius: 0.3rem;
   
 }
@@ -34,3 +35,12 @@
   color: inherit;
   text-decoration: none;
 }
+
+/*
+rgba(68, 142,242, 95)
+rgba(71, 196, 252, 99)
+rgba(76, 222, 230, 90)
+rgba(71, 252, 211, 153)
+rgba(68, 242, 153, 95)
+
+*/

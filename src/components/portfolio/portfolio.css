@@ -9,7 +9,7 @@
     height: 100%;
     outline: none;
     border: none;
-    background-color: rgba(135, 206, 250, 0.25);
+    background-color: hsl(309, 100%, 96%);
     border-radius: .3rem;
     margin-right: .5em;
     cursor: pointer;
@@ -25,7 +25,7 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(1, auto);
-    background-color: rgba(135, 206, 250, 0.25);
+    background-color: hsl(37, 100%, 93%);
     padding: 1%;
     border-radius: 4px;
 }
@@ -89,37 +89,40 @@
 
 .btn:hover, .btn:focus {
   background-color: hsl(0, 0%, 80%);
-  box-shadow: 0 0 5px 0 hsl(0, 0%, 70%);
+  /* box-shadow: 0 0 5px 0 hsl(0, 0%, 70%); */
 }
 
 .btn.btn-chart {
-  background-color: hsl(180, 80%, 50%);
-  border-color: hsl(180, 80%, 30%);
+  color: black;
+  background-color: hsl(209, 100%, 91%);
+  border-color: hsl(209, 100%, 71%);
 }
 
 .btn.btn-chart:hover, .btn.btn-chart:focus {
-  background-color: hsl(180, 80%, 40%);
-  box-shadow: 0 0 5px 0 hsl(180, 80%, 30%);
+  background-color: hsl(209, 100%, 81%);
+  /* box-shadow: 0 0 5px 0 hsl(209, 100%, 71%); */
 }
 
 .btn.btn-calculator {
-  background-color: hsl(150, 60%, 70%);
-  border-color: hsl(150, 100%, 20%);
+  color: black;
+  background-color: hsl(106, 100%, 91%);
+  border-color: hsl(106, 100%, 71%);
 }
 
 .btn.btn-calculator:hover, .btn.btn-calculator:focus {
-  background-color: hsl(150, 100%, 30%);
-  box-shadow: 0 0 5px 0 hsl(150, 100%, 20%);
+  background-color: hsl(106, 100%, 81%);
+  /* box-shadow: 0 0 5px 0 hsl(106, 100%, 71%); */
 }
 
 .btn.btn-back {
-  background-color: hsl(10, 100%, 40%);
-  border-color: hsl(10, 100%, 20%);
+  color: black;
+  background-color: hsl(309, 100%, 91%);
+  border-color: hsl(309, 100%, 71%);
 }
 
 .btn.btn-back:hover, .btn.btn-back:focus {
-  background-color: hsl(10, 100%, 30%);
-  box-shadow: 0 0 5px 0 hsl(10, 100%, 20%);
+  background-color: hsl(309, 100%, 81%);
+  /* box-shadow: 0 0 5px 0 hsl(309, 100%, 71%); */
 }
 
 .btn-link {
