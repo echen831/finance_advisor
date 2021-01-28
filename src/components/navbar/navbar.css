@@ -28,12 +28,13 @@
 .link:hover {
   background-color: rgba(71, 196, 252, 99);
   border-radius: 0.3rem;
-  
+  cursor: pointer;
 }
 
 .link a {
   color: inherit;
   text-decoration: none;
+  padding: .5rem;
 }
 
 /*
