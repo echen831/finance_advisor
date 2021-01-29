@@ -27,7 +27,6 @@
 
 .input-container {
     width: 55%;
-    padding: 1em;
     background-color: rgba(0, 255, 255, 0.144);
     border-radius: 4px;
 }
@@ -38,7 +37,6 @@
 
 .header-btn {
     display: flex;
-    padding-left: .5rem;
 }
 
 .input {
@@ -63,7 +61,6 @@
 .suggestion-container {
     width: 40%;
     background-color: rgba(156, 235, 228, 0.767);
-    padding: 1%;
     border-radius: 4px;
 }
 

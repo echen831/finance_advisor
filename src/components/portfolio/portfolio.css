@@ -2,8 +2,7 @@
 .select-container {
     display: flex;
     justify-content: flex-start;
-    width: 60%;
-    background-color: blue;
+    width: 75%;
 }
 
 .select-container select {
@@ -19,7 +18,7 @@
 .chart-container {
     display: flex;
     justify-content: center;
-    width: 60%;
+    width: 75%;
 }
 
 .risk-container {

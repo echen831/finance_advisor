@@ -99,10 +99,6 @@ input[type=number] {
         width: 80%;
     }
 
-    .header-btn {
-        margin-left: 2rem;
-    }
-
 }
 
 @media (max-width: 768px) {
@@ -127,9 +123,6 @@ input[type=number] {
         border-radius: .3rem;
     }
 
-    .header-btn {
-        margin-left: 0;
-    }
 }
 
 @media (max-width: 500px) {
@@ -155,10 +148,6 @@ input[type=number] {
         width: 95%;
         font-size: .5rem;
         border-radius: .3rem;
-    }
-
-    .header-btn {
-        margin-left: 0;
     }
 
 }
