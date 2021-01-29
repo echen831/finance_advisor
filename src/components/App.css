@@ -70,7 +70,7 @@ input[type=number] {
 
 @media (max-width: 950px) {
 
-    .chart-container {
+    .chart-container, .select-container {
         width: 75%;
         font-size: .85rem;
         border-radius: .3rem;
@@ -121,7 +121,7 @@ input[type=number] {
         margin-bottom: 1rem;
     }
 
-    .chart-container {
+    .chart-container, .select-container {
         width: 95%;
         font-size: .75rem;
         border-radius: .3rem;
@@ -151,7 +151,7 @@ input[type=number] {
         margin-bottom: 1rem;
     }
 
-    .chart-container {
+    .chart-container, .select-container {
         width: 95%;
         font-size: .5rem;
         border-radius: .3rem;

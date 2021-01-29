@@ -3,6 +3,7 @@
     display: flex;
     justify-content: flex-start;
     width: 60%;
+    background-color: blue;
 }
 
 .select-container select {
