@@ -23,8 +23,11 @@ export const Table = (props) => {
                         <div key={idx} className='input'>
                             <li>{option}:</li>
                             <li>
-                                <input type="number" id='userInput' className='current-amt'
-                                    onChange={(e) => handleInputChange(e, option)} />
+                                <div className='input-wrapper'>
+                                    <span>$</span>
+                                    <input type="number" id='userInput' className='current-amt'
+                                        onChange={(e) => handleInputChange(e, option)} />
+                                </div>
                             </li>
                             <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>
                             <li>{showAmt ? `$${targetValues[option]}` : null}</li>

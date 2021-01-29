@@ -39,16 +39,27 @@
     display: flex;
 }
 
+.input-wrapper {
+    display: flex;
+    border: 1px solid black;
+    border-radius: .3rem;
+    background-color: white;
+    padding: .25rem .75rem;
+    max-width: 125px;
+    width: 75%;
+    height: 100%;
+}
+
 .input {
     display: flex;
     justify-content: center;
     padding-bottom: 1rem;
 }
 
-.input input {
-    max-width: 125px;
+.input-wrapper input {
+    border: none;
     width: 75%;
-    height: 100%;
+    font-size: inherit;
 }
 
 .input li {
