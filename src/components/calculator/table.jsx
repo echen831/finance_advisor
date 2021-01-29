@@ -36,7 +36,7 @@ export const Table = (props) => {
                 })}
             </div>
             <div className='suggestion-container'>
-                <li>Suggested Transactions</li>
+                <h4>Suggested Transactions</h4>
                 {suggestions.map((str, idx) => {
                     return <li key={idx}>{str}</li>
                 })}
