@@ -29,8 +29,8 @@ export const Chart = ({data}) => {
             <PieChart width={700} height={400} >
                 <Pie
                     data={chartData}
-                    // cx={350}
-                    // cy={200}
+                    cx={350}
+                    cy={200}
                     innerRadius={50}
                     outerRadius={150}
                     label= "name"
@@ -39,7 +39,7 @@ export const Chart = ({data}) => {
                     dataKey="value"
                 >
                     {
-                        formatData(data).map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+                        chartData.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
                     }
                 </Pie>
                 <Legend verticalAlign="top" height={10}></Legend>
