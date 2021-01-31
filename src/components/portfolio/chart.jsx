@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     PieChart, Pie, Cell, Legend
 } from 'recharts';
@@ -8,11 +8,18 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#B28DFF'];
 
 export const Chart = ({data}) => {
 
+    const [ chartData, setChartData ] = useState([]);
+
+    useEffect(() => {
+        let newData = formatData(data);
+        setChartData(newData)
+    }, []) 
+
     const formatData = (d) => {
         let res = [];
 
         for(let k in d) {
-            res.push({name: k, value: d[k]})
+            res.push({name: k, value: d[k] * 100})
         } 
         return res;
     }
@@ -21,9 +28,9 @@ export const Chart = ({data}) => {
         <div className='chart-container'>
             <PieChart width={700} height={400} >
                 <Pie
-                    data={formatData(data)}
-                    cx={350}
-                    cy={200}
+                    data={chartData}
+                    // cx={350}
+                    // cy={200}
                     innerRadius={50}
                     outerRadius={150}
                     label= "name"
