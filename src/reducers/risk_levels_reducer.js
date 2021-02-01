@@ -1,5 +1,3 @@
-
-
 export const riskLevelsReducer = (oldState={}, action) => {
     Object.freeze(oldState);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const RiskLevelSelector = ( {setCurrIdx, currIdx, showChart } ) => {
+export const RiskLevelSelector = ( {setCurrIdx, currIdx } ) => {
 
     const defaultVal = currIdx === 0 ? "Select Risk Level" : currIdx;
     return (

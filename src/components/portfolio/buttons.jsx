@@ -19,11 +19,9 @@ export const LinkButton = ({ currIdx, link, text, classname }) => {
 
 
 export const Button = ({ text, handleClick, currIdx, classname }) => {
-    // const style = currIdx === 0 ? { pointerEvents: "none" } : null
     return (
         <button className={`btn ${classname}`}
                 onClick={handleClick}
-                // style={style}
         >{text}</button>
     )
 }

@@ -32,7 +32,6 @@ const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
             <div className='select-container'>
                 <RiskLevelSelector setCurrIdx={setCurrIdx} 
                                    currIdx={currIdx}
-                                   showChart={showChart}
                                    />
                 <Button text={buttonText}
                               handleClick={handleToggle}
