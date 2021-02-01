@@ -65,7 +65,7 @@
     {
         "Bonds": 0.05,
         "Large Cap": 0.15,
-        "Mid Cap": 0.4,
+        "Mid Cap": 0.3,
         "Foreign": 0.25,
         "Small Cap": 0.15
     },
