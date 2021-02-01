@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import {
-    PieChart, Pie, Cell, Legend
+    PieChart, Pie, Cell, Legend, LabelList
 } from 'recharts';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#B28DFF'];
 
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+    cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+}) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+        <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+            {`${(percent * 100).toFixed(0)}%`}
+        </text>
+    );
+};
 
 export const Chart = ({data}) => {
 
@@ -33,7 +47,8 @@ export const Chart = ({data}) => {
                     cy={200}
                     innerRadius={50}
                     outerRadius={150}
-                    label= "name"
+                    labelLine={false}
+                    label={renderCustomizedLabel}
                     fill="#8884d8"
                     paddingAngle={0}
                     dataKey="value"
