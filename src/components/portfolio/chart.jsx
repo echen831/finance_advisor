@@ -40,11 +40,11 @@ export const Chart = ({currIdx, riskLevels}) => {
   
     return (
         <div className='chart-container'>
-            <PieChart width={700} height={400} >
+            <PieChart width={475} height={400} >
                 <Pie
                     data={chartData}
-                    cx={350}
-                    cy={200}
+                    // cx={350}
+                    // cy={200}
                     innerRadius={50}
                     outerRadius={150}
                     labelLine={false}
