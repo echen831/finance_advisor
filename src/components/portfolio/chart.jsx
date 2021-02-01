@@ -20,14 +20,14 @@ const renderCustomizedLabel = ({
     );
 };
 
-export const Chart = ({data}) => {
+export const Chart = ({currIdx, riskLevels}) => {
 
     const [ chartData, setChartData ] = useState([]);
 
     useEffect(() => {
-        let newData = formatData(data);
+        let newData = formatData(riskLevels[currIdx]);
         setChartData(newData)
-    }, []) 
+    }, [currIdx]) 
 
     const formatData = (d) => {
         let res = [];

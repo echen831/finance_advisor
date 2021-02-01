@@ -32,7 +32,7 @@ const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
             <div className='select-container'>
                 <RiskLevelSelector setCurrIdx={setCurrIdx} 
                                    currIdx={currIdx}
-                                   
+                                   showChart={showChart}
                                    />
                 <Button text={buttonText}
                               handleClick={handleToggle}
@@ -46,7 +46,8 @@ const Portfolio = ({currentIdx, setCurrentIdx, riskLevels}) => {
             </div>
             <div className='chart-container'>
                 {
-                    showChart ? <Chart data={riskLevels[currIdx]}/> :
+                    showChart ? <Chart currIdx={currIdx}
+                                       riskLevels={riskLevels}/> :
                     <ul className='risk-container'>
                         {riskLevels.map((risk, idx) => {
                             return <RowItem idx={idx}
