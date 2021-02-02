@@ -13,9 +13,10 @@ export const Table = (props) => {
                     <li>New Amount</li>
                 </div>
                 {options.map((option, idx) => {
-                    const displayDiff = (difference[idx] > 0) ?
-                        `+${difference[idx]}` :
-                        difference[idx];
+                    const displayDiff = (difference[idx] === 0) ?
+                        difference[idx] : (difference[idx] > 0) ?
+                        `+ $${difference[idx]}` :
+                        `- $${difference[idx] * -1}`;
                     const displayDiffColor = difference[idx] !== 0 ?
                         difference[idx] < 0 ?
                             'red' : 'green' : '';
@@ -29,7 +30,7 @@ export const Table = (props) => {
                                         onChange={(e) => handleInputChange(e, option)} />
                                 </div>
                             </li>
-                            <li id={displayDiffColor}>{showAmt ? displayDiff : null}</li>
+                            <li className={displayDiffColor}>{showAmt ? displayDiff : null}</li>
                             <li>{showAmt ? `$${targetValues[option]}` : null}</li>
                         </div>
                     )
